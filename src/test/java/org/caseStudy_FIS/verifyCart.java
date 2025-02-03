@@ -38,7 +38,7 @@ public class verifyCart {
 
 
 		//		Handle to Next Window
-		webDriverWait();
+		windowHandle();
 
 		//		Click on Add to Cart Button
 		driver.findElement(By.xpath("(//a[@rel='nofollow'])[4]")).click();
@@ -60,7 +60,7 @@ public class verifyCart {
 
 
 
-	public static boolean webDriverWait() {
+	public static boolean windowHandle() {
 		String parentId2 = driver.getWindowHandle();		
 
 		Set<String> allWinIds = driver.getWindowHandles();
