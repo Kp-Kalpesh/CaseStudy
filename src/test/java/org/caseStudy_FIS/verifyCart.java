@@ -10,8 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.utilities.BaseUtility;
 
 public class verifyCart {
 	private static WebDriver driver;
@@ -19,11 +18,11 @@ public class verifyCart {
 
 	public static void main(String[] args) {
 
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.get("https://www.ebay.com/");
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
+		String bName = "Ch";
+		String Url = "https://ebay.com";
+		BaseUtility bu = new BaseUtility();
+		driver = bu.launchBrowser(Url, bName);
+		
 
 		// enter the valid data
 		WebElement searchInputField = driver.findElement(By.xpath("//input[@placeholder='Search for anything']"));
@@ -55,7 +54,7 @@ public class verifyCart {
 		}else{
 			System.out.println("The Product did not add into the Cart");
 		};
-//		driver.quit();
+				driver.quit();
 	}
 
 
